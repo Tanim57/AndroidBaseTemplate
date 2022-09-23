@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+
+    <dimen name="activity_default_margin">8dp</dimen>
+    <dimen name="activity_default_padding">8dp</dimen>
+
+    <dimen name="activity_vertical_margin_large">24dp</dimen>
+    <dimen name="activity_horizontal_margin_large">24dp</dimen>
+
+
+    <!--Text sizes-->
+    <dimen name="default_margin_top">12dp</dimen>
+    <dimen name="default_text_size_header">24sp</dimen>
+    <dimen name="default_text_size_large">20sp</dimen>
+    <dimen name="default_text_size_plus">18sp</dimen>
+    <dimen name="default_text_size">16sp</dimen>
+    <dimen name="default_text_size_small">14sp</dimen>
+    <dimen name="default_text_size_para">15sp</dimen>
+    <dimen name="default_text_size_mini_13">13sp</dimen>
+    <dimen name="default_text_size_mini">12sp</dimen>
+    <dimen name="default_text_size_large_header">32sp</dimen>
+    <dimen name="default_text_size_very_large_header">40sp</dimen>
+    <dimen name="default_text_size_mini_10">10sp</dimen>
+    <dimen name="default_text_size_mini_8">8sp</dimen>
+    <dimen name="default_text_size_mini_7">7sp</dimen>
+    <dimen name="default_text_size_mini_6">6sp</dimen>
+    <dimen name="default_text_size_mini_5">5sp</dimen>
+    <dimen name="default_text_size_mini_4">4sp</dimen>
+    <dimen name="default_text_size_mini_3">3sp</dimen>
+    <dimen name="default_text_size_mini_2">2sp</dimen>
+    <dimen name="default_text_size_mini_1">1sp</dimen>
+
+
+    <dimen name="icon_size_large">72dp</dimen>
+    <dimen name="dimen32">32dp</dimen>
+    <dimen name="dummy_face_size">120dp</dimen>
+    <dimen name="dummy_face_width">200dp</dimen>
+    <dimen name="dummy_face_height">264dp</dimen>
+
+    <dimen name="button_size_square_large">128dp</dimen>
+    <dimen name="button_image_size_large">96dp</dimen>
+    <dimen name="dimen_4dp">4dp</dimen>
+
+
+    <dimen name="face_view_width">120dp</dimen>
+    <dimen name="face_view_height">160dp</dimen>
+    <dimen name="margin_1dp">1dp</dimen>
+
+    <dimen name="dialog_width">300dp</dimen>
+    <dimen name="activity_default_margin_very_small">4dp</dimen>
+    <dimen name="value_margin_default">6dp</dimen>
+    <dimen name="text_size_label">12sp</dimen>
+    <dimen name="layout_margin_top">12dp</dimen>
+    <dimen name="basic_face_width">152dp</dimen>
+    <dimen name="basic_face_height">200dp</dimen>
+    <dimen name="dimen2dp">2dp</dimen>
+    <dimen name="test_size_little">8sp</dimen>
+
+    <dimen name="indicator_icon_size_20">20dp</dimen>
+    <dimen name="indicator_icon_size_large">72dp</dimen>
+    <dimen name="indicator_icon_size">24dp</dimen>
+    <dimen name="indicator_icon_size_small">20dp</dimen>
+
+    <!--    default item size-->
+    <dimen name="default_item_size">48dp</dimen>
+    <dimen name="default_item_size_small">40dp</dimen>
+    <dimen name="default_item_size_very_small">32dp</dimen>
+    <dimen name="default_item_size_large">56dp</dimen>
+    <dimen name="item_corner_radius">12dp</dimen>
+
+
+    <!--    margin -->
+    <dimen name="zero">0dp</dimen>
+    <dimen name="margin_1_px">1px</dimen>
+    <dimen name="margin_1">1dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_9">9dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_14">14dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_18">18dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="margin_28">28dp</dimen>
+    <dimen name="margin_32">32dp</dimen>
+    <dimen name="margin_36">36dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_48">48dp</dimen>
+    <dimen name="margin_64">64dp</dimen>
+    <dimen name="margin_72">72dp</dimen>
+    <dimen name="margin_80">80dp</dimen>
+    <dimen name="margin_96">96dp</dimen>
+    <dimen name="margin_100">100dp</dimen>
+    <dimen name="margin_104">104dp</dimen>
+    <dimen name="margin_112">112dp</dimen>
+    <dimen name="margin_120">120dp</dimen>
+    <dimen name="margin_128">128dp</dimen>
+    <dimen name="margin_144">144dp</dimen>
+    <dimen name="margin_160">160dp</dimen>
+    <dimen name="margin_176">176dp</dimen>
+    <dimen name="margin_184">184dp</dimen>
+    <dimen name="margin_200">200dp</dimen>
+    <dimen name="margin_224">224dp</dimen>
+    <dimen name="margin_256">256dp</dimen>
+    <dimen name="margin_280">280dp</dimen>
+    <dimen name="margin_300">300dp</dimen>
+    <dimen name="margin_320">320dp</dimen>
+    <dimen name="margin_360">360dp</dimen>
+    <dimen name="margin_400">400dp</dimen>
+
+</resources>
