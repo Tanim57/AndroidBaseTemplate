@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference
 open class BaseViewModel<T : BaseContract.View?>(
     val dataManager: DataManager
 ) : ViewModel(), BaseContract.ViewModel<T> {
-    val isLoading = ObservableBoolean()
+    private val isLoading = ObservableBoolean()
 
     private var view: WeakReference<T>? = null
 

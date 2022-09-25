@@ -28,4 +28,12 @@ data class Resource<out T,out V>(val status: Status, val data: T?, val message: 
         }
     }
 
+    override fun toString(): String {
+        return when (this.status) {
+            Status.SUCCESS -> "Success[data=$data]"
+            Status.ERROR -> "Error[exception=$message]"
+            Status.LOADING -> "Loading"
+        }
+    }
+
 }
