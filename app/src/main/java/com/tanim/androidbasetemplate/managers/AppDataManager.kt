@@ -12,6 +12,7 @@ class AppDataManager @Inject constructor(
     private val session: Session,
     private val preferenceManager: PreferenceManager,
     override var database: AppDatabase,
+    override var apiInterface: ApiInterface,
     //override val currentTime: Flow<Long>
 ) : DataManager {
 

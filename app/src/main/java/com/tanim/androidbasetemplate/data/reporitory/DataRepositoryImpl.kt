@@ -2,6 +2,7 @@
 package com.tanim.androidbasetemplate.data.reporitory
 
 import Resource
+import com.tanim.androidbasetemplate.data.auth.LoginResponse
 import com.tanim.androidbasetemplate.data.local.LocalRepository
 import com.tanim.androidbasetemplate.data.mapper.RemoteRepository
 import com.tanim.androidbasetemplate.data.mapper.ResourceString
@@ -16,19 +17,14 @@ class DataRepositoryImpl (private val remoteRepository: RemoteRepository,
                           private val ioDispatcher: CoroutineContext
 ): DataRepository {
 
-    override suspend fun getPackages(): Flow<Resource<ResourceString, ResourceString>> {
+    override suspend fun login(
+        userName: String,
+        password: String
+    ): Flow<Resource<LoginResponse, ResourceString>> {
         return flow {
-            emit(localRepository.getPackages())
+            emit(remoteRepository.login(userName,password))
         }.flowOn(ioDispatcher)
     }
 
-    override suspend fun getPackages(user: Int): Flow<Resource<ResourceString, ResourceString>> {
-        return flow {
-            emit(remoteRepository.getPackages(user))
-        }.flowOn(ioDispatcher)
-    }
 
-    override suspend fun insert() {
-        localRepository.insert()
-    }
 }

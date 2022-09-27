@@ -70,13 +70,14 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient, dataManager: PreferenceManager): Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         val gson = GsonBuilder()
             .setDateFormat(DateFormat.DATE_TIME_FORMAT)
             .registerTypeAdapter(LocalTime::class.java, JsonDeserializerUtils.deserializerLocalTime)
             .registerTypeAdapter(DayOfWeek::class.java, JsonDeserializerUtils.deserializerDayOfWeek)
             .create()
-        val serviceUrl = ""
+
+        val serviceUrl = "https://www.facebook.com/"
         return Retrofit.Builder()
             .baseUrl(
                 serviceUrl

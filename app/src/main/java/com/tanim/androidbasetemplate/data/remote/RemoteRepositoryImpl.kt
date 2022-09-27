@@ -1,6 +1,8 @@
 package com.tanim.androidbasetemplate.di.component
 import Resource
+import com.tanim.androidbasetemplate.BuildConfig
 import com.tanim.androidbasetemplate.data.Constant
+import com.tanim.androidbasetemplate.data.auth.LoginResponse
 import com.tanim.androidbasetemplate.data.mapper.IdResourceString
 import com.tanim.androidbasetemplate.data.mapper.RemoteRepository
 import com.tanim.androidbasetemplate.data.mapper.ResourceString
@@ -13,9 +15,8 @@ import java.io.IOException
 import javax.inject.Inject
 
 class RemoteRepositoryImpl (private val dataManager: DataManager) : RemoteRepository {
-    override suspend fun getPackages(user: Int): Resource<ResourceString, ResourceString> {
-        TODO("Not yet implemented")
-    }
+
+
 
     private inline fun <reified T:Any> mapResponse(response: Any?): Resource<T,ResourceString> {
         try {
@@ -52,5 +53,20 @@ class RemoteRepositoryImpl (private val dataManager: DataManager) : RemoteReposi
         } catch (e: IOException) {
             return TextResourceString("Failed to connect")
         }
+    }
+
+    override suspend fun login(
+        userName: String,
+        password: String
+    ): Resource<LoginResponse, ResourceString> {
+
+        if(BuildConfig.DEBUG){
+            if(userName.equals("test") and password.equals("test")){
+                return Resource.success(LoginResponse(true,"token"))
+            }
+            return Resource.Companion.error(TextResourceString("Invalid credentials"))
+        }
+
+        return  mapResponse(processCall { dataManager.apiInterface.login(userName,password) })
     }
 }

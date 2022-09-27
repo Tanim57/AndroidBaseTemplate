@@ -10,7 +10,7 @@ import com.tanim.androidbasetemplate.managers.DataManager
 import java.lang.ref.WeakReference
 
 open class BaseViewModel/*<T : BaseContract.View?>*/(
-    val dataManager: DataManager,repository: DataRepository
+    val dataManager: DataManager,val repository: DataRepository
 ) : ViewModel()/*, BaseContract.ViewModel<T>*/ {
 
     var isLoading = ObservableBoolean()
@@ -18,6 +18,7 @@ open class BaseViewModel/*<T : BaseContract.View?>*/(
     //private var view: WeakReference<T>? = null
 
     var toastMessage = SingleLiveEvent<ResourceString>()
+    var errorMessage = SingleLiveEvent<ResourceString>()
 
     override fun onCleared() {
         super.onCleared()
