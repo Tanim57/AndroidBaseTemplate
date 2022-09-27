@@ -17,7 +17,7 @@ import com.tanim.androidbasetemplate.di.component.DaggerFragmentComponent
 import com.tanim.androidbasetemplate.di.component.FragmentComponent
 import com.tanim.androidbasetemplate.di.module.FragmentModule
 
-abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel<*>> : Fragment(),
+abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment(),
     BaseContract.View {
     // the root view
     var rootView: View? = null
@@ -38,12 +38,12 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel<*>> : Fragmen
      */
     abstract val bindingVariable: Int
 
-    abstract fun bindView()
+    //abstract fun bindView()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         performDependencyInjection(buildComponent)
         super.onCreate(savedInstanceState)
-        bindView()
+        //bindView()
     }
 
     override fun onCreateView(
@@ -72,12 +72,12 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel<*>> : Fragmen
     }
 
     private val buildComponent: FragmentComponent
-        private get() = DaggerFragmentComponent.builder()
+        get() = DaggerFragmentComponent.builder()
             .appComponent((requireContext().applicationContext as App).appComponent)
             .fragmentModule(FragmentModule(this))
             .build()
 
-    abstract fun performDependencyInjection(buildComponent: FragmentComponent?)
+    abstract fun performDependencyInjection(buildComponent: FragmentComponent)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewDataBinding.setVariable(bindingVariable, mViewModel)

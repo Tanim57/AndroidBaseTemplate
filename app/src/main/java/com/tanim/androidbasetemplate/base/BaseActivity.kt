@@ -28,7 +28,7 @@ import com.tanim.androidbasetemplate.utils.setLocale
 import timber.log.Timber
 import javax.inject.Inject
 
-abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>?> : AppCompatActivity(),
+abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatActivity(),
     BaseContract.View, FragmentCallback {
 //
 //    @Inject
@@ -50,7 +50,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>?> : AppCom
      * @return variable id
      */
     abstract val bindingVariable: Int
-    abstract fun bindView()
+    //abstract fun bindView()
 
     /**
      * @return layout resource id
@@ -87,7 +87,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>?> : AppCom
     public override fun onCreate(savedInstanceState: Bundle?) {
         performDependencyInjection(buildComponent)
         super.onCreate(savedInstanceState)
-        bindView()
+        //bindView()
         performDataBinding()
         if (!BuildConfig.DEBUG) {
             Timber.i("########################### EXCEPTION ################################")

@@ -17,7 +17,7 @@ import com.tanim.androidbasetemplate.di.component.DaggerDialogComponent
 import com.tanim.androidbasetemplate.di.component.DialogComponent
 import com.tanim.androidbasetemplate.di.module.DialogModule
 
-abstract class BaseDialog<T : ViewDataBinding, V : BaseViewModel<*>> : DialogFragment(),
+abstract class BaseDialog<T : ViewDataBinding, V : BaseViewModel> : DialogFragment(),
     BaseContract.View {
     private var mActivity: BaseActivity<*, *>? = null
 

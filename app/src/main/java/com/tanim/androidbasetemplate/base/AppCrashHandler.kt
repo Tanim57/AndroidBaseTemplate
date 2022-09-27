@@ -1,6 +1,5 @@
 package com.tanim.androidbasetemplate.base
 
-import com.tanim.androidbasetemplate.base.BaseActivity
 import timber.log.Timber
 import android.content.Intent
 import com.tanim.androidbasetemplate.MainActivity

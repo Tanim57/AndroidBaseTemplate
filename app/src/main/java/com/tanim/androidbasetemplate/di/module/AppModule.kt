@@ -9,21 +9,29 @@ import android.content.Context
 import com.tanim.androidbasetemplate.data.database.AppDatabase
 import retrofit2.Retrofit
 import okhttp3.OkHttpClient
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.tanim.androidbasetemplate.utils.JsonDeserializerUtils
 import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import android.util.DisplayMetrics
+import com.tanim.androidbasetemplate.base.AppExecutors
+import com.tanim.androidbasetemplate.data.local.LocalRepository
+import com.tanim.androidbasetemplate.data.local.LocalRepositoryImpl
+import com.tanim.androidbasetemplate.data.mapper.RemoteRepository
+import com.tanim.androidbasetemplate.data.reporitory.DataRepository
+import com.tanim.androidbasetemplate.data.reporitory.DataRepositoryImpl
+import com.tanim.androidbasetemplate.di.component.RemoteRepositoryImpl
 import com.tanim.androidbasetemplate.managers.*
 import com.tanim.androidbasetemplate.utils.DateFormat
 import dagger.Module
 import dagger.Provides
+import kotlinx.coroutines.Dispatchers
 import okhttp3.Request
 import java.lang.Exception
 import java.time.DayOfWeek
 import java.time.LocalTime
+import kotlin.coroutines.CoroutineContext
 
 @Module
 class AppModule {
@@ -49,6 +57,15 @@ class AppModule {
     @Singleton
     fun provideDataManager(appDataManager: AppDataManager): DataManager {
         return appDataManager
+    }
+
+    @Provides
+    @Singleton
+    fun provideDataRepository(remoteRepository: RemoteRepository,
+                              localRepository: LocalRepository,
+                              ioDispatcher: CoroutineContext
+    ): DataRepository {
+        return DataRepositoryImpl(remoteRepository,localRepository,ioDispatcher)
     }
 
     @Provides
@@ -115,7 +132,7 @@ class AppModule {
                     original.newBuilder()
                         .addHeader("Accept", "application/json")
                         .addHeader("Content-Type", "application/json")
-                        .addHeader("Authorization", session.getApiToken())
+                        //.addHeader("Authorization", session.getApiToken())
                 } else {
                     original.newBuilder()
                         .addHeader("Accept", "application/json")
@@ -142,4 +159,31 @@ class AppModule {
     fun provideDisplayMetrics(context: Context): DisplayMetrics {
         return context.resources.displayMetrics
     }
+
+    @Provides
+    @Singleton
+    fun provideAppExecutors(): AppExecutors {
+        return AppExecutors()
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideLocalDataSource(context: Context,dataManager: DataManager,appExecutors: AppExecutors): LocalRepository {
+        return LocalRepositoryImpl(context,dataManager,appExecutors)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCoroutineContext(): CoroutineContext {
+        return Dispatchers.IO
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideRemoteDataSource(dataManager: DataManager): RemoteRepository {
+        return RemoteRepositoryImpl(dataManager)
+    }
+
 }
