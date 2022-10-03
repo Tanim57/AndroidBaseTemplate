@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import com.tanim.androidbasetemplate.BR
+import com.tanim.androidbasetemplate.BuildConfig
 import com.tanim.androidbasetemplate.R
 import com.tanim.androidbasetemplate.base.BaseFragment
 import com.tanim.androidbasetemplate.data.mapper.Status
@@ -42,7 +43,6 @@ class LoginFragment : BaseFragment<FragnentLoginBinding, LoginViewModel>() {
             }else if(it.status.error()){
                 it.message?.let { it1 -> showShortToast(it1.format(requireContext())) }
             }
-
         })
 
         mViewModel.toastMessage.observe(viewLifecycleOwner, Observer {
@@ -51,6 +51,11 @@ class LoginFragment : BaseFragment<FragnentLoginBinding, LoginViewModel>() {
         mViewModel.errorMessage.observe(viewLifecycleOwner, Observer {
             showSnackBar(it.format(requireContext()))
         })
+
+        if(BuildConfig.DEBUG){
+            viewDataBinding.etUserName.setText("test")
+            viewDataBinding.etPassword.setText("test")
+        }
 
     }
 }
